@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ChatBot </title>
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: paleturquoise;
+}
+.box{
+    width: 490px;
+    height: 350px;
+    box-shadow: 5px 5px 20px #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.top{
+    width: 100%;
+    height: 80px;
+    background: cyan;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.top h1{
+    margin: 0;
+    font-size: 30px;
+    color: crimson;
+    text-align: center;
+    padding-top: 10px;
+    font-family: sans-serif;
+}
+.mid{
+    width: 100%;
+    height: 150px;
+    background: yellow;
+}
+.mid .chat{
+    width: 100%;
+}
+.mid .chat h2{
+    margin: 0;
+    font-size: 30px;
+    color: #000;
+    padding:30px 20px;
+    text-align: center;
+}
+.mid .chat p{
+    margin: 0;
+    height: 30px;
+    font-size: 28px;
+    color: blue;
+    text-align: center;
+    background-color: yellow;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.input{
+    height:100%;
+    width: 489px;
+    overflow: hidden;
+}
+.input input{
+    width: 100%;
+    height: 110px;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+    padding-top:0;
+    font-family: monospace;
+    font-size: 50px;
+    background: lime;
+}
+    </style>
+</head>
+<body>
+
+    <div class="box">
+<div style="text-align: center;" class="top">
+    <h1>Send A Message !</h1>
+</div>
+<div class="mid">
+    <div class="chat">
+        <h2>Answers Are Below</h2>
+      
+        <p id="chatLog">Let's Chat</p>
+    </div>
+</div>
+    <div class="input">
+    <input type="text" id="userBox"onkeydown="if(event.keyCode == 13){ talk() }"placeholder="Type A Message">
+    </div>
+    </div>
+
+    <script>
+function talk(){
+    var know ={
+        "Hi":"Hello!🙂", "hi":"Bol!😄", "HI":"Bol be!😃", "hI":"Bol be sale!😂",
+         "How are you":"Fine!😊", "how are you":"aachi hu re bol aage!😉", "HOW ARE YOU":"thik bani!😋", "How are You":"thik hu!🙂",
+         "What do you like to eat":"Everything which you give🤷", "WHAT DO YOU LIKE TO EAT":"Everything which you give🤷", "what do you like to eat":"Everything which you give🤷",
+         "I GIVE YOU A BANANA,will you take?":"Yes! of course👍", "i give you a banana,will you take?":"Ok main lungi👍", "I give you a banana,will you take?":"Wow! I love it❤️",
+         "What is your name":"Alexa", "WHAT IS YOUR NAME":"ALEXA", "what is your name":"Alexa",
+         "😘":"😍", "🤩":"😘", "💓️":"🤭", "🤒":"😵", "🤕":"🤣",
+         "😙":"😚", "😗":"😚", "😷":"😱", "🧟":"😖", "💪":"😘",         
+         "😎":"😍", "🍌":"🤗", "🤮":"🤢", "💩":"🤥", "😪":"👋",
+         
+         "😍":"😘", "😘":"🤩", "🤗️":"💓", "😵":"🤒", "🤣":"🤕",
+         "😚":"😙", "😗":"😚", "😱":"😷", "😖":"🧟", "😘":"💏",         
+         "😍":"😎", "🍌":"🤗", "🤢":"🤮", "🤥":"💩", "👋":"😪",
+         
+         "DO YOU KNOW,WHO AM I":"YES!", "do you know,who am I":"yes","Do you know,who am I":"Yes",
+        "Do you know":"What❓", "do you know":"Kya❓", "DO YOU KNOW":"Kya❓ bol be",
+        "WHERE IS YOUR FATHER":"My father is not now in this world😭", "where is your father":"My father is not now😭", "Where is your father":"My father is not now😭",
+        "What is your father name":"Rabish", "what is your father name":"Rabish", "WHAT IS YOUR FATHER NAME":"Rabish",
+        "what is your mother name":"Roxanne", "WHAT IS YOUR MOTHER NAME":"Roxanne", "What is your mother name":"Roxanne",
+        "Is your father Indian":"Yes!", "IS YOUR FATHER INDIAN":"Ha!", "is your father indian":"ha! Indian hai", "Is your father indian":"Yes! Indian hi",
+        "Is your mother english women":"Yes!", "IS YOUR MOTHER ENGLISH WOMEN":"Ha!", "is your mother english women":"ha! English women hai", "Is your mother English women":"Yes! English women hi",
+        
+        "Hello":"Hi!", "hello":"Hi!", "Hello":"Hi!",
+        "I am sorry":"No problem😔", "I AM SORRY":"No problem😔", "i am sorry":"No problem😔",
+        "I LOVE YOU":"I Love you too😍", "I love you":"I love you too😍", "i love you":"I love you too😍",
+        "What will you want to be in a future":"Wife 😋", "what will you want to be in a future":"Wife😉", "WHAT WILL YOU WANT TO BE IN A FUTURE":"Wife😚",
+        "Which person":"You!😍", "WHICH PERSON":"You!😘", "which person":"You!🙂",
+      "What will you want to do in future":"marriage!👰", "WHAT WILL YOU WANT TO DO IN FUTURE":"Marriage!👰", "what will you want to do in future":"Marriage!👰",
+  
+    "What do you like to play":"Cricket!🏏", "WHAT DO YOU LIKE TO PLAY":"Cricket!🏏", "what do you like to play":"Cricket!🏏",
+    "Good morning":"Good morning!☀️", "good morning":"Good morning!☀️", "GOOD MORNING":"Good morning!☀️",
+    "BYE":"Bye!Have a nice day👋", "bye":"Bye!Have a nice day👋", "Bye":"Bye!Have a nice day👋",
+    "Where do you live":"In your 💓", "WHERE DO YOU LIVE":"In your 💓", "where do you live":"In your 💓",
+    "Where is your mother":"My mom is in USA🏢", "where is your mother":"My mother is in USA🏢", "WHERE IS YOUR MOTHER":"My mother is in USA🏢",
+    "WILL YOU WANT TO MARRY WITH ME":"Yes! of course 🤗", "will you want to marry with me":"Yes! of course 🤗", "Will you want to marry with me":"Yes! of course🤗",
+    "Do you like me":"HA! I like you very much🤱", "do you like me":"Yes! I like you very much🤱", "DO YOU LIKE ME":"ha! I like you very much🤱",
+    "WHO ARE YOU":"I am a girl!🧑", "Who are you":"I am a girl!🧑", "who are you":"I am a girl!🧑",
+    "do you felt good while chat with me":"Very much!😊", "Do you felt good while chat with me":"Very much☺️", "DO YOU FELT GOOD WHILE CHAT WITH ME":"Very much!☺️",
+    "do you felt good while talk with me":"Very much!😊", "Do you felt good while talk with me":"Very much☺️", "DO YOU FELT GOOD WHILE talk WITH ME":"Very much!☺️",
+    };
+    var user = document.getElementById('userBox').value;
+    document.getElementById('chatLog').innerHTML = user + "<br>";
+    if(user in know){
+        document.getElementById('chatLog').innerHTML = know[user] + "<br>";
+    }else{
+        document.getElementById('chatLog').innerHTML = "I do not understand .";
+    }
+   }
+    </script>
+</body>
+</html>
